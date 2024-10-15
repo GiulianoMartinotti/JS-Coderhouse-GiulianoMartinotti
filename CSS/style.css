@@ -1,0 +1,447 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+nav {
+    font-size: 25px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav a {
+    text-decoration: none;
+    color: #000000;
+
+    &:hover{
+        color: #A90000;
+    }
+}
+
+p {
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+h1 {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 40px;
+    font-size: 40px;
+}
+
+h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 25px;
+    font-weight: 5px;
+}
+
+h3 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 500;
+    font-weight: 500;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ffffff;
+    color: #000000;
+    font-family: "Bebas Neue", sans-serif;
+}
+
+header form {
+    display: none;
+}
+
+@media(min-width: 768px) {
+    header {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 100px;
+        padding: 18px;
+        justify-content: space-between;
+    }
+
+    header nav ul {
+        display: flex;
+        gap: 12px;
+    }
+
+}
+
+
+@media(min-width: 1200px) {
+    header {
+        padding: 18px;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        position: sticky;
+        top: 0;
+    }
+}
+
+
+.scroll{
+    background-color: aliceblue;
+    box-shadow: .1rem .2rem .3rem #333;
+}
+.scroll img{
+    filter: invert(15%);
+}           
+.scroll h1{
+    color: #141C29;
+}
+
+.header {
+    display: flex;
+    justify-content: space-around;
+}
+
+/* Inicio */
+.carrito {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    cursor: pointer;
+}
+
+.contenedorDeCompra {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    background-color: #DCDCDC;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.informacionDeCompra {
+    width: 500px;
+    height: 500px;
+    border-radius: 20px;
+    background-color: #1f1f1f;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: fixed;
+}
+
+.informacionDeCompra h2 {
+    font-weight: 300;
+    margin: 50px 0px 0px 50px;
+    font-size: 30px;
+    width: 100%;
+}
+
+.x {
+    padding-top: 25px;
+    padding-right: 30px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #A90000;
+}
+
+.compraDeProductos {
+    font-size: 17px;
+    z-index: 1;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 450px;
+    height: 30%;
+    overflow-y: auto;
+    margin-top: 40px;
+}
+
+.compraDeProductos div {
+    margin: 0px 45px;
+    padding: 20px 0px;
+    width: auto;
+    border-bottom:#A90000;
+    display: flex;
+    justify-content: space-between;
+}
+
+.imgjv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.compraDeProductos img {
+    width: 20px;
+    height: auto;
+    margin-right: 12px;
+    border-bottom: none;
+    cursor: pointer;
+}
+
+.total {
+    z-index: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 150px;
+    font-size: 20px;
+}
+
+.total span {
+    font-weight: 300;
+}
+
+.contenedorDeCompra button {
+    z-index: 1;
+    background-color: #DCDCDC;
+    width: 300px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    font-size: 17px;
+    font-weight: 300;
+}
+
+.contenedorDeCompra button:hover {
+    background-color: #ffffff;
+    color: #A90000;
+}
+
+.portada {
+    background-image: url(../imagenes/bela-contacto.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.portada h2 {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+/*.portada img {
+    width: 100%;
+    height: 900px;
+}
+
+/*Seccion de productos en el incio*/
+.adidas h2 {
+    display: flex;
+    justify-content: center;
+    background-color: #1f1f1f;
+    margin-top: 2rem;
+    color: #DCDCDC;
+}
+
+.nox h2 {
+    display: flex;
+    justify-content: center;
+    background-color: #1f1f1f;
+    margin-top: 2rem;
+    color: #DCDCDC;
+}
+
+.imagenesDeProductos {
+    width: 320px;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 20px 20px 0px 0px;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.contenedor div {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+    background-color: #1f1f1f;
+    color: #DCDCDC;
+    border-radius: 20px;
+}
+
+.contenedor div:hover {
+    background-color: #A90000;
+    color: #DCDCDC;
+}
+
+
+.informacionDelProducto{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.informacionDelProducto p:first-child {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+}
+
+.precio {
+    font-size: 20px;    
+    font-family: "Roboto Condensed", sans-serif;
+}
+
+.informacionDelProducto button{
+    background-color:#DCDCDC;
+    width: 100px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+
+    font-size: 17px;
+    font-weight: 300px;
+    cursor: pointer;
+}
+
+
+.diseñodenumero {
+    padding: 10px;
+    background-color: #A90000;
+    border-radius: 100%;
+    width: 20px;
+    height: 20px;
+    font-size: 10px;
+    position: relative;
+    top: -12px;
+    left: 30px;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Contacto */
+.titulo-contacto {
+    background-color: #000000;
+    color: #ffffff;
+    padding: 12px;
+    text-align: center;
+}
+
+.formulario-contenedor {
+    background-image: url(../imagenes/tapia-coello.jpeg);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 600px;
+    padding: 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+}
+
+.formulario {
+    display: grid;
+    background-color: #1f1f1f ;
+    color: #ffffff;
+    width: 90%;
+    gap: 2rem;
+    max-width: 400px;
+    padding: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+
+}
+
+.formulario p {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 30px;
+}
+
+.grupo-formulario {
+    position: relative;
+}
+
+.form-input {
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    padding: 2rem;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+}
+
+.boton-enviar{
+    &:hover{
+        color:#DCDCDC;
+        background-color: #A90000;
+    }
+}
+
+.textarea {
+    width: 100%;
+    height: 40px;
+    font-size: 20px;
+}
+
+
+@media(max-width: 992px) {
+    .formulario-contenedor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .titulo-contacto {
+        border-radius: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
