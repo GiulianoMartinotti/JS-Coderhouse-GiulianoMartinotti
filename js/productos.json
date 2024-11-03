@@ -1,4 +1,126 @@
+[
+    {
+        "id": "Adidas-01",
+        "nombre": "Adidas Metalbone HRD 3.3",
+        "precio": 380,
+        "imagen": "./imagenes/adidas-metalbone-hrd-2024.jpg"
+    },
+    {
+        "id": "Adidas-02",
+        "nombre": "Adidas Metalbone 3.3",
+        "precio": 380,
+        "imagen": "./imagenes/adidas-metalbone-3.3"
+    },
+    {
+        "id": "Adidas-03",
+        "nombre": "Adipower Multiweight CTRL",
+        "precio": 340,
+        "imagen": "./imagenes/adidas-adipower-multiweight.jpeg"
+    },
+    {
+        "id": "Adidas-04",
+        "nombre": "Adipower Legend",
+        "precio": 380,
+        "imagen": "./imagenes/adipower-legend.jpeg"
+    },
+    {
+        "id": "Adidas-05",
+        "nombre": "Adidas Cross It Light",
+        "precio": 380,
+        "imagen": "./imagenes/adidas-crossit.jpeg"
+    },
+    {
+        "id": "Nox-01",
+        "nombre": "Nox AT10 LUXURY GENIUS 18K",
+        "precio": 360,
+        "imagen": "./imagenes/nox-at10-18k.webp"
+    },
+    {
+        "id": "Nox-02",
+        "nombre": "Nox AT GENIUS ATTACK 18K",
+        "precio": 380,
+        "imagen": "./imagenes/nox-at-attack.webp"
+    },
+    {
+        "id": "Nox-03",
+        "nombre": "Nox AT GENIUS ATTACK 12K",
+        "precio": 360,
+        "imagen": "./imagenes/nox-at-attack-12k.jpeg"
+    },
+    {
+        "id": "Nox-04",
+        "nombre": "Nox AT10 LUXURY GENIUS 12K",
+        "precio": 380,
+        "imagen": "./imagenes/nox-at10-12k.webp"
+    },
+    {
+        "id": "Nox-05",
+        "nombre": "Nox ML10 QUANTUM 3K",
+        "precio": 390,
+        "imagen": "./imagenes/nox-ml10.jpg"
+    },
+    {
+        "id": "Bullpadel-01",
+        "nombre": "Bullpadel Hack 04",
+        "precio": 300,
+        "imagen": "./imagenes/bullpadel-hack-04-2025.jpg"
+    },
+    {
+        "id": "Bullpadel-02",
+        "nombre": "Bullpadel Neuron",
+        "precio": 290,
+        "imagen": "./imagenes/bullpadel-neuron-2024.jpg"
+    },
+    {
+        "id": "Bullpadel-03",
+        "nombre": "Bullpadel Vertex CMF 03",
+        "precio": 310,
+        "imagen": "./imagenes/bullpadel-vertex-comfort-2024.jpg"
+    },
+    {
+        "id": "Bullpadel-04",
+        "nombre": "Bullpadel Pearl",
+        "precio": 295,
+        "imagen": "./imagenes/bullpadel-pearl-2025.jpg"
+    },
+    {
+        "id": "Bullpadel-05",
+        "nombre": "Bullpadel XPLO",
+        "precio": 325,
+        "imagen": "./imagenes/bullpadel-xplo-2025.jpeg"
+    },
 
+    {
+        "id": "Siux-01",
+        "nombre": "Siux Diablo Rev Pro 3",
+        "precio": 280,
+        "imagen": "./imagenes/siux-diablo-revolution-pro-3-2024.jpg"
+    },
+    {
+        "id": "Siux-02",
+        "nombre": "Siux Fenix Pro 4",
+        "precio": 325,
+        "imagen": "./imagenes/siux-fenix-pro4.jpg"
+    },
+    {
+        "id": "Siux-03",
+        "nombre": "Siux Electra ST3",
+        "precio": 200,
+        "imagen": "./imagenes/siux-electra-st3.webp"
+    },
+    {
+        "id": "Siux-04",
+        "nombre": "Siux Trilogy CTRL 4",
+        "precio": 300,
+        "imagen": "./imagenes/siux-trilogy-ctrl-4.webp"
+    },
+    {
+        "id": "Siux-05",
+        "nombre": "Siux Fenix Lite 4",
+        "precio": 290,
+        "imagen": "./imagenes/siux-fenix-lite-4-2024.jpg"
+    }
+]
 
 
 

@@ -1,71 +1,17 @@
-const productos = [
-    {
-        id: "Adidas-01",
-        nombre: "Adidas Metalbone HRD 3.3",
-        precio: 380,
-        imagen: "./imagenes/adidas-metalbone-hrd-2024.jpg"
-    },
-    {
-        id: "Adidas-02",
-        nombre: "Adidas Metalbone 3.3",
-        precio: 380,
-        imagen: "./imagenes/adidas-metalbone-3.3"
-    },
-    {
-        id: "Adidas-03",
-        nombre: "Adipower Multiweight CTRL",
-        precio: 340,
-        imagen: "./imagenes/adidas-adipower-multiweight.jpeg"
-    },
-    {
-        id: "Adidas-04",
-        nombre: "Adipower Legend",
-        precio: 380,
-        imagen: "./imagenes/adipower-legend.jpeg"
-    },
-    {
-        id: "Adidas-05",
-        nombre: "Cross It Light",
-        precio: 380,
-        imagen: "./imagenes/adidas-crossit.jpeg"
-    },
-    {
-        id: "Nox-01",
-        nombre: "AT10 LUXURY GENIUS 18K",
-        precio: 360,
-        imagen: "./imagenes/nox-at10-18k.webp"
-    },
-    {
-        id: "Nox-02",
-        nombre: "AT GENIUS ATTACK 18K",
-        precio: 380,
-        imagen: "./imagenes/nox-at-attack.webp"
-    },
-    {
-        id: "Nox-03",
-        nombre: "AT GENIUS ATTACK 12K",
-        precio: 360,
-        imagen: "./imagenes/nox-at-attack-12k.jpeg"
-    },
-    {
-        id: "Nox-04",
-        nombre: "AT10 LUXURY GENIUS 12K",
-        precio: 380,
-        imagen: "./imagenes/nox-at10-12k.webp"
-    },
-    {
-        id: "Nox-05",
-        nombre: "ML10 QUANTUM 3K",
-        precio: 320,
-        imagen: "./imagenes/nox-ml10.jpg"
-    }
-];
+let productos = [];
 
+fetch("./js/productos.json")
+    .then(response => response.json())
+    .then(data => {
+        productos = data;
+        cargarProductos(productos);
+    })
 
 
 const contenedorProductos = document.querySelector("#contenedor-productos");
 let botoncomprar = document.querySelectorAll(".agregarProducto");
-const numeroDelCarrito = document.querySelector("#numeroDelCarrito")
+const numeroDelCarrito = document.querySelector("#numeroDelCarrito");
+
 
 function cargarProductos() {
     productos.forEach(producto => {
@@ -85,7 +31,8 @@ function cargarProductos() {
 
     actualizarbotoncomprar();
 }
-cargarProductos();
+
+
 
 
 function actualizarbotoncomprar() {
@@ -101,8 +48,8 @@ let productosEnCarrito;
 const productosEnCarritoLS = localStorage.getItem("productos-en-carrito");
 
 
-if (productosEnCarritoLS){
-    productosEnCarrito = JSON.parse (productosEnCarritoLS);
+if (productosEnCarritoLS) {
+    productosEnCarrito = JSON.parse(productosEnCarritoLS);
     actualizarNumeroDelCarrito();
 } else {
     productosEnCarrito = [];
@@ -110,6 +57,21 @@ if (productosEnCarritoLS){
 
 
 function agregarAlCarrito(e) {
+    Toastify({
+        text: "Se ha agregado al carrito ✓",
+        duration: 3000,
+        close: false,
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+            background: "#A90000",
+            fontSize: "1rem",
+            color: "#ffffff",
+            borderRadius: "2rem",
+        },
+        onClick: function () { }
+    }).showToast();
 
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
