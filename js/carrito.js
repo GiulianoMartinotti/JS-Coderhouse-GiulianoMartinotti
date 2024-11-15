@@ -12,9 +12,6 @@ const botonComprar = document.querySelector(".carrito-comprar")
 const actualizarCarrito = document.querySelector("#total");
 const formularioFinal = document.querySelector(".formularioFinal");
 const botonFinalizarCompra = document.querySelector(".boton-finalizar-compra");
-const cantidadCarrito = document.querySelector(".cantidad");
-const btnSumar = document.querySelector(".botonsumar");
-const btnRestar = document.querySelector(".botonrestar");
 
 
 /* Funcion que se encarga de cargar los productos al carrito */
@@ -35,14 +32,6 @@ function cargarProductosCarrito() {
                         <div class="carrito-producto-nombre">
                             <small>Nombre</small>
                             <h3>${producto.nombre}</h3>
-                        </div>
-                        <div class="carrito-producto-cantidad">
-                            <small>Cantidad</small>
-                            <div class="cambiarcantidadencarrito">
-                            <button class="btnSumar">+</button>
-                            <p class="cantidad">${producto.cantidad}</p>
-                            <button class="btnRestar">-</button>
-                            </div>
                         </div>
                         <div class="carrito-producto-precio">
                             <small>Precio</small>
@@ -120,8 +109,10 @@ function vaciarCarrito() {
             productosEnCarrito.length = 0;
             localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
             cargarProductosCarrito();
+            formularioFinal.classList.add("disabled");
         }
     });
+
 }
 
 
@@ -135,14 +126,8 @@ function actualizarTotal() {
 
 botonComprar.addEventListener("click", comprarCarrito);
 function comprarCarrito() {
-    productosEnCarrito.length = 0;
-    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
     cargarProductosCarrito();
-
-    carritoVacio.classList.add("disabled");
-    productosCarrito.classList.add("disabled");
-    interaccionesCarrito.classList.add("disabled");
-    compraRealizada.classList.add("disabled");
+    interaccionesCarrito.classList.remove("disabled");
     formularioFinal.classList.remove("disabled");
 }
 
@@ -169,3 +154,75 @@ function finalizarCompra() {
 }
 
 
+const validacionDeDatosFinales = () => {
+    const nombre = document.querySelector("#nombre");
+    const apellido = document.querySelector("#apellido");
+    const email = document.querySelector("#email");
+    const domicilio = document.querySelector("#domicilio");
+
+    if (!nombre.value) return alertaDatosIngresados('Debe ingresar su nombre.') && false;
+
+    if (!apellido.value) return alertaDatosIngresados('Debe ingresar su apellido.') && false;
+
+    if (!email.value) return alertaDatosIngresados('Debe ingresar su e-mail.') && false;
+
+    if (!domicilio.value) return alertaDatosIngresados('Debe ingresar su domicilio.') && false;
+
+    return true;
+}
+
+const alertaDatosIngresados = () => {
+    Swal.fire({
+        text: "Debe completar los datos",
+        confirmButtonColor: 'red'
+    });
+};
+
+botonFinalizarCompra.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (validacionDeDatosFinales()) {
+        finalizarCompra();
+    } else{
+        carritoVacio.classList.add("disabled");
+        productosCarrito.classList.remove("disabled");
+        interaccionesCarrito.classList.add("disabled");
+        compraRealizada.classList.add("disabled");
+        formularioFinal.classList.remove("disabled");
+    }
+})
+
+
+/*botonSumar.addEventListener("click", sumarCantidad);
+function sumarCantidad(e) {
+    Toastify({
+        text: "Se ha agregado al carrito ✓",
+        duration: 3000,
+        close: false,
+        gravity: "top", 
+        position: "right", 
+        stopOnFocus: true, 
+        style: {
+            background: "#A90000",
+            fontSize: "1rem",
+            color: "#ffffff",
+            borderRadius: "2rem",
+        },
+        onClick: function () { }
+    }).showToast();
+    const idBoton = e.currentTarget.id;
+    const productoAgregado = productos.find(producto => producto.id === idBoton);
+
+    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
+        const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
+        productosEnCarrito[index].cantidad++;
+    } else {
+        productoAgregado.cantidad = 1;
+        productosEnCarrito.push(productoAgregado);
+    }
+
+    actualizarNumeroDelCarrito();
+
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+}
+botonSumar.addEventListener("click", sumarCantidad);
+*/

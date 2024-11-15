@@ -61,9 +61,9 @@ function agregarAlCarrito(e) {
         text: "Se ha agregado al carrito ✓",
         duration: 3000,
         close: false,
-        gravity: "top", 
-        position: "right", 
-        stopOnFocus: true, 
+        gravity: "top",
+        position: "right",
+        stopOnFocus: true,
         style: {
             background: "#A90000",
             fontSize: "1rem",
@@ -76,13 +76,13 @@ function agregarAlCarrito(e) {
     const idBoton = e.currentTarget.id;
     const productoAgregado = productos.find(producto => producto.id === idBoton);
 
-    if (productosEnCarrito.some(producto => producto.id === idBoton)) {
+    /*if (productosEnCarrito.some(producto => producto.id === idBoton)) {
         const index = productosEnCarrito.findIndex(producto => producto.id === idBoton);
         productosEnCarrito[index].cantidad++;
-    } else {
-        productoAgregado.cantidad = 1;
-        productosEnCarrito.push(productoAgregado);
-    }
+    } else {*/
+    productoAgregado.cantidad = 1;
+    productosEnCarrito.push(productoAgregado);
+
 
     actualizarNumeroDelCarrito();
 
