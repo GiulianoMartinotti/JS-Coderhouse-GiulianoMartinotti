@@ -275,12 +275,36 @@ header form {
         padding-right: 1rem;
     }
 
+
     .producto-carrito-img {
         margin: 1rem;
         width: 8rem;
         border-radius: 1rem;
-
     }
+
+    .carrito-producto-cantidad button {
+        width: 2rem;
+    }
+
+    .cambiarcantidadencarrito {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .cambiarcantidadencarrito p {
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .btnSumar{
+        color: green;
+    }
+
+    .btnRestar {
+        color: #A90000;
+    }
+
 
     .carrito-producto-cantidad,
     .carrito-producto-precio,
@@ -403,6 +427,8 @@ header form {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        border-bottom: 1px solid #DCDCDC;
+        padding-bottom: 20px;
     }
 
     .datos-de-compra input {
@@ -420,6 +446,14 @@ header form {
     .cvv input {
         width: 4rem;
         height: 2rem;
+    }
+
+    .resumendecompra .totaldecompra{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 1rem;
+        width: 18rem;
     }
 
     .boton-finalizar-compra {

@@ -12,6 +12,9 @@ const botonComprar = document.querySelector(".carrito-comprar")
 const actualizarCarrito = document.querySelector("#total");
 const formularioFinal = document.querySelector(".formularioFinal");
 const botonFinalizarCompra = document.querySelector(".boton-finalizar-compra");
+const cantidadCarrito = document.querySelector(".cantidad");
+const btnSumar = document.querySelector(".botonsumar");
+const btnRestar = document.querySelector(".botonrestar");
 
 
 /* Funcion que se encarga de cargar los productos al carrito */
@@ -25,7 +28,6 @@ function cargarProductosCarrito() {
         productosCarrito.innerHTML = "";
 
         productosEnCarrito.forEach(producto => {
-
             const div = document.createElement("div");
             div.classList.add("producto-carrito");
             div.innerHTML = `
@@ -36,7 +38,11 @@ function cargarProductosCarrito() {
                         </div>
                         <div class="carrito-producto-cantidad">
                             <small>Cantidad</small>
-                            <p>${producto.cantidad}</p>
+                            <div class="cambiarcantidadencarrito">
+                            <button class="btnSumar">+</button>
+                            <p class="cantidad">${producto.cantidad}</p>
+                            <button class="btnRestar">-</button>
+                            </div>
                         </div>
                         <div class="carrito-producto-precio">
                             <small>Precio</small>
@@ -74,10 +80,10 @@ function actualizarbotonEliminar() {
     });
 }
 
-/* Boton que elimina individualmente los productos del carrito, tambien eliminando individualmente desde localstorage*/
+/* funciones para los botones que restan, suman y eliminan por completo los productos del carrito, tambien eliminando individualmente desde localstorage*/
 function eliminarDelCarrito(e) {
     Swal.fire({
-        title: "¿Está seguro que desea eliminar este producto del carrito?",
+        title: "¿Está seguro que desea eliminar la totalidad de este producto del carrito?",
         icon: "warning",
         showCancelButton: true,
         focusConfirm: false,
@@ -88,7 +94,7 @@ function eliminarDelCarrito(e) {
         if (result.isConfirmed) {
             productosEnCarrito.splice(index, 1);
             cargarProductosCarrito();
-        
+
             localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
         }
     });
@@ -119,47 +125,47 @@ function vaciarCarrito() {
 }
 
 
+/* Funcion utilizada para sumar o restar e ir actualizando el "total" que se muestra en el carrito */
+function actualizarTotal() {
+    const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
+    total.innerText = `$${totalCalculado}`;
+}
 
-    /* Funcion utilizada para sumar o restar e ir actualizando el "total" que se muestra en el carrito */
-    function actualizarTotal() {
-        const totalCalculado = productosEnCarrito.reduce((acc, producto) => acc + (producto.precio * producto.cantidad), 0);
-        total.innerText = `$${totalCalculado}`;
-    }
 
 
-    /* Boton "comprar" que lanza el mensaje final luego de realizar la compra */
-    botonComprar.addEventListener("click", comprarCarrito);
-    function comprarCarrito() {
-        productosEnCarrito.length = 0;
-        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-        cargarProductosCarrito();
+botonComprar.addEventListener("click", comprarCarrito);
+function comprarCarrito() {
+    productosEnCarrito.length = 0;
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    cargarProductosCarrito();
 
-        carritoVacio.classList.add("disabled");
-        productosCarrito.classList.add("disabled");
-        interaccionesCarrito.classList.add("disabled");
-        compraRealizada.classList.add("disabled");
-        formularioFinal.classList.remove("disabled");
-    }
+    carritoVacio.classList.add("disabled");
+    productosCarrito.classList.add("disabled");
+    interaccionesCarrito.classList.add("disabled");
+    compraRealizada.classList.add("disabled");
+    formularioFinal.classList.remove("disabled");
+}
 
-    /* Boton que finaliza la compra luego de cargar los datos de la tarjeta */
-    botonFinalizarCompra.addEventListener("click", finalizarCompra);
-    function finalizarCompra() {
-        Swal.fire({
-            position: "top-end",
-            icon: "success",
-            title: "¡Su compra se ha realizado con éxito!",
-            showConfirmButton: false,
-            timer: 2000,
-            fontWeigth: "100"
-        });
-        productosEnCarrito.length = 0;
-        localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
-        cargarProductosCarrito();
+/* Boton que finaliza la compra luego de cargar los datos de la tarjeta */
+botonFinalizarCompra.addEventListener("click", finalizarCompra);
+function finalizarCompra() {
+    Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "¡Su compra se ha realizado con éxito!",
+        showConfirmButton: false,
+        timer: 2000,
+        fontWeigth: "100"
+    });
+    productosEnCarrito.length = 0;
+    localStorage.setItem("productos-en-carrito", JSON.stringify(productosEnCarrito));
+    cargarProductosCarrito();
 
-        carritoVacio.classList.add("disabled");
-        productosCarrito.classList.add("disabled");
-        interaccionesCarrito.classList.add("disabled");
-        compraRealizada.classList.remove("disabled");
-        formularioFinal.classList.add("disabled");
-    }
+    carritoVacio.classList.add("disabled");
+    productosCarrito.classList.add("disabled");
+    interaccionesCarrito.classList.add("disabled");
+    compraRealizada.classList.remove("disabled");
+    formularioFinal.classList.add("disabled");
+}
+
 
