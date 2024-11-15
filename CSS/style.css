@@ -297,14 +297,6 @@ header form {
         margin-right: 1rem;
     }
 
-    .btnSumar{
-        color: green;
-    }
-
-    .btnRestar {
-        color: #A90000;
-    }
-
 
     .carrito-producto-cantidad,
     .carrito-producto-precio,

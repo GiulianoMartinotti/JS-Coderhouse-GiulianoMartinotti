@@ -69,10 +69,10 @@ function actualizarbotonEliminar() {
     });
 }
 
-/* funciones para los botones que restan, suman y eliminan por completo los productos del carrito, tambien eliminando individualmente desde localstorage*/
+/* funciones que eliminan por completo los productos del carrito, tambien eliminando individualmente desde localstorage*/
 function eliminarDelCarrito(e) {
     Swal.fire({
-        title: "¿Está seguro que desea eliminar la totalidad de este producto del carrito?",
+        title: "¿Está seguro que desea eliminar este producto del carrito?",
         icon: "warning",
         showCancelButton: true,
         focusConfirm: false,
